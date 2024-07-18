@@ -20,11 +20,12 @@ const server = http.createServer((req, res) => {
         req.on("end", () => {
             const parsedbody =Buffer.concat(body).toString();
             const message = parsedbody.split("=")[1];
-            fs.writeFileSync("message.txt", message);
+            fs.writeFile("message.txt", message, (err) => {
+                res.statusCode = 302;
+                res.setHeader("Location", "/");
+                return res.end();
+            });
         });
-        res.statusCode = 302;
-        res.setHeader("Location", "/");
-        return res.end();
     }
     res.setHeader("Content-Type", "text/html");
     res.write("<html>");
