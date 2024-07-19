@@ -1,12 +1,10 @@
-const { buffer } = require("stream/consumers");
-
 const requestHandler = (req, res) => {
     const url = req.url;
     const method = req.method;
     if(url === "/"){
         res.setHeader("Content-Type", "text/html");
         res.write("<html>");
-        res.write('<body><div>Hello there</div><form action="/createuser" method="POST"><input type="text" name="username"><button>Submit</button></form></body>');
+        res.write('<body><div>Hello there</div><form action="/createuser" method="POST"><input type="text" name="username"><button type="submit">Submit</button></form></body>');
         res.write("<html>");
         return res.end();
     }
@@ -27,6 +25,7 @@ const requestHandler = (req, res) => {
             const parsedbody = Buffer.concat(body).toString();
             const user = parsedbody.split("=")[1];
             console.log(user);
+            res.setHeader("Location", "/");
             return res.end();
         });
     }
