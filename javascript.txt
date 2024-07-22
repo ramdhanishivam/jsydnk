@@ -1,0 +1,2 @@
+The Two Pillars of JavaScript, prototypal inheritance and functional programming: 
+the foundational paradigms which make JavaScript what it is
