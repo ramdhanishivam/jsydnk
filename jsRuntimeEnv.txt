@@ -7,3 +7,14 @@
 7. Execution and Compilation are done together.
 8. Execution has Garbage collector and other optimisation such as inlining, copy elusion, inline caching etc.
 9. Fell in love with JS. 
+
+Basic idea about Mark & Sweep Algo(Garbage collection):
+It comprise of 2 phases - 
+1. Mark phase
+2. Sweep phase
+
+All objects are marked as 0 initially (at creation) and in mark phase the objects that will be accessible are marked as 1 (reachable) by a DFS graph traversal.
+
+During sweep phase, the objects marked with 0 are removed from heap memory. and also all reachable objects are again initialized with 0 (made unreachable) because the algorithm will run again.
+
+So, it's basically tracing garbage collector concept. :)
