@@ -14,7 +14,7 @@ function doSomeMagic(fn, delay){
     let timeout = null;
     return function(){
         let context = this,
-            args = arguments;
+        args = arguments;
         
         //clear any existing timeouts 
         clearTimeout(timeout);
@@ -26,3 +26,19 @@ function doSomeMagic(fn, delay){
 
 // doSomeMagic is a debounce function
 const betterFuntion = doSomeMagic(getData, 300);
+
+
+const debounce = (func, delay) => {
+    let timeout;
+    return (...args) => {
+        console.log(timeout);
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+};
+
+document.getElementById("legendButton").addEventListener("click", debounce(consoleFunc, 2000));
+
+function consoleFunc() {
+    console.log("debounce optimized");
+}
