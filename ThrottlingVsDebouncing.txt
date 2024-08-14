@@ -1,0 +1,31 @@
+Throttling vs. Debouncing: A Simple Explanation
+
+Throttling
+
+Imagine you have a really talkative friend who won't stop talking. Throttling is like telling them, "Hey, you can only talk for 10 seconds every minute." No matter how much they try to squeeze in more words, you only let them speak for those 10 seconds.
+
+In code terms: A function is executed at most once within a specified time period.
+
+Debouncing
+
+Think of a noisy neighbor who keeps knocking on your door. Debouncing is like putting a sign that says, "Please wait 10 seconds before knocking again." They can knock as much as they want, but you only open the door after 10 seconds of silence.
+
+In code terms: A function is executed only after a specified period of inactivity.
+
+Key Differences
+
+Throttling: Limits the rate of function calls.
+Debouncing: Delays the execution of a function until a certain period of inactivity.
+
+When to Use Which
+
+Throttling: Useful for events that happen frequently, like scroll events or resize events.
+Debouncing: Ideal for input fields, search suggestions, or window resize events where you only want to trigger an action after the user has stopped typing or resizing.
+
+Example:
+
+Throttling: Limiting the number of times a geolocation function is called while a user is moving.
+
+Debouncing: Delaying a search until the user stops typing in a search box.
+
+Remember: Both techniques help optimize performance by reducing unnecessary function calls.
