@@ -8,7 +8,7 @@ function circumferenceOfCircle(radius){
 
 const radiusArray = [10,12,13,40,80];
 
-function calcalate(radiusArray, operation){
+function calculate(radiusArray, operation){
     const output = [];
     radiusArray.map((radius)=>{
         output.push(operation(radius));
@@ -16,5 +16,5 @@ function calcalate(radiusArray, operation){
     return output;
 }
 
-const allArea = calcalate(radiusArray,areaOfCircle);
+const allArea = calculate(radiusArray,areaOfCircle);
 console.log(allArea);
