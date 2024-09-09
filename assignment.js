@@ -1,24 +1,13 @@
-const root = document.querySelector(".root");
-
-
-for (let index = 0; index < 1000; index++) {
-    const circleElement = document.createElement("div");
-    circleElement.className = "circle-element";
-    root.append(circleElement);
+const promiseAfterSeconds = (seconds) => {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            resolve("resolved")
+        },seconds*1000)
+    })
+    return promise;
 }
 
-const circleElements = document.querySelectorAll('.circle-element');
-
-setInterval(()=>{
-    circleElements.forEach((element)=>{
-        element.style.backgroundColor = 'black';
-        element.style.borderRadius = '10%';
-    })
-},1000)
-
-setInterval(()=>{
-    circleElements.forEach((element)=>{
-        element.style.backgroundColor = 'lightgray';
-        element.style.borderRadius = '50%';
-    })
-},1500)
+const response = promiseAfterSeconds(2);
+response.then((e)=>{
+    console.log(e)
+})
